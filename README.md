@@ -1,7 +1,9 @@
 1. create docker image by the following command where my-app is the image name and it will take dockerfile
-    docker run -d -p 3000:3000 my-app:1.0
+
+    docker run -d -p 3000:3000 my-app:1.0 .
    
 2. run docker-compose command which will run my-app, mongo, mongo-express
+
    localhost:3000 is for application
    localhost:8080 is for mongo-express ( see the server.js of database and collection name)
 
