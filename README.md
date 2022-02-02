@@ -1,3 +1,40 @@
+1. create docker image by the following command where my-app is the image name and it will take dockerfile
+    docker run -d -p 3000:3000 my-app:1.0
+   
+2. run docker-compose command which will run my-app, mongo, mongo-express
+   localhost:3000 is for application
+   localhost:8080 is for mongo-express ( see the server.js of database and collection name)
+
+# docker-tutorial
+Container vs Image:
+
+Container is the running environment of the images. Container is created from the images.
+
+##Docker command cheat sheet:
+-> List of docker command
+1. docker pull
+2. docker run (docker run -d -p8180:8080 --name)
+3. docker start (to restart stop container)
+4. docker stop
+5. docker ps
+6. docker images
+7. docker logs | {name or id of the contianer}
+8. docker exec -it containerid /bin/bash
+# port binding-> Container port to host port
+
+docker pull mongo
+docker pull mongo-express
+docker network create mongo-network
+
+docker run -d -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password --name mongodb --network mongo-network mongo
+
+docker run -d -p 8081:8081 --name mongo-express --network mongo-network -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=password -e ME_CONFIG_MONGODB_SERVER=mongodb mongo-express
+
+
+Create a docker compose file of (mongo and mongo-express):
+
+
+
 ## demo app - developing with Docker
 
 This demo app shows a simple user profile app set up using 
